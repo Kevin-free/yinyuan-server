@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+	<!-- 开启注解 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+						<value>text/html;charset=UTF-8</value>
+						<value>text/plain;charset=UTF-8</value>
+					</list>
+				</property>
+				<property name="writeAcceptCharset" value="false" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- 扫描哪些包 -->
+	<context:component-scan base-package="com.kevin.controller,com.kevin.scheduler"></context:component-scan>
+
+	<!-- 定时任务的配置，采用注解方式处理 -->
+	<task:annotation-driven scheduler="myScheduler" />
+	<!-- 推荐配置线程池，若不配置多任务下会有问题,pool-size="5"的值与任务数相关 -->
+	<task:scheduler id="myScheduler" pool-size="2" />
+
+	<!-- 采用注解的默认配置 -->
+	<!-- <mvc:annotation-driven> <mvc:message-converters> <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> 
+		<property name="objectMapper" ref="customObjectMapper"></property> </bean> 
+		</mvc:message-converters> </mvc:annotation-driven> <bean id="customObjectMapper" 
+		class="messageConvert.CustomJsonDateConverter"></bean> -->
+
+
+	<!-- <bean id="myObjectMapper" class="json.MyObjectMapper" /> -->
+	<!-- <mvc:annotation-driven conversion-service="conversionService"> <mvc:message-converters> 
+		<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> 
+		<property name="objectMapper"> <ref bean="myObjectMapper" /> </property> 
+		<property name="supportedMediaTypes"> <list> 这里顺序不能反，一定先写text/html,不然ie下出现下载提示 
+		<value>text/html;charset=UTF-8</value> <value>text/json;charset=UTF-8</value> 
+		<value>application/json;charset=UTF-8</value> </list> </property> </bean> 
+		</mvc:message-converters> </mvc:annotation-driven> -->
+
+	<!-- <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"> 
+		<property name="converters"> <set> <bean class="com.jm.controller.util.DateConvert"/> 
+		</set> </property> </bean> <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix" value="/WEB-INF/jsp/"/> <property name="suffix" value=".jsp" 
+		/> </bean> -->
+	<!-- <mvc:resources mapping="/admin/**" location="/admin/"/> <mvc:resources 
+		mapping="/images/**" location="/images/**"/> <mvc:resources mapping="/inc/**" 
+		location="/inc/**"/> <mvc:resources mapping="/js/**" location="/js/**"/> 
+		<mvc:resources mapping="/jsondata/**" location="/jsondata/**"/> <mvc:resources 
+		mapping="/student/**" location="/student/**"/> <mvc:resources mapping="/teacher/**" 
+		location="/teacher/**"/> <mvc:resources mapping="/template/**" location="/template/**"/> -->
+	<!-- <mvc:default-servlet-handler /> -->
+
+
+	<!-- 多部分文件上传 -->
+	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		<property name="maxUploadSize" value="104857600" /> <property name="maxInMemorySize" 
+		value="4096" /> <property name="defaultEncoding" value="UTF-8"></property> 
+		</bean> -->
+
+
+	<!-- <mvc:interceptors> <mvc:interceptor> 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller 
+		<mvc:mapping path="/**" /> <mvc:mapping path="/user/**" /> <mvc:mapping path="/test/**" 
+		/> <bean class="com.jm.controller.interceptors.accessInterceptors"></bean> 
+		</mvc:interceptor> 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 
+		</mvc:interceptors> -->
+
+
+	<!-- <mvc:annotation-driven conversion-service="conversionService"> <mvc:message-converters> 
+		<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> 
+		<property name="supportedMediaTypes"> <list> 这里顺序不能反，一定先写text/html,不然ie下出现下载提示 
+		<value>text/html;charset=UTF-8</value> <value>text/json;charset=UTF-8</value> 
+		<value>application/json;charset=UTF-8</value> </list> </property> </bean> 
+		</mvc:message-converters> </mvc:annotation-driven> <bean id="conversionService" 
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean"> 
+		<property name="converters"> </property> </bean> -->
+</beans>
