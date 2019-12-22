@@ -7,5 +7,6 @@
 * 开发环境
 
 ## 系统架构图
+![](pics/系统架构图.png)
 
 <a href="https://github.com/Kevin-free/yinyuan_weapp" rel="nofollow">寻找最佳音缘_微信小程序端</a>
