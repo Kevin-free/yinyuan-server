@@ -3,13 +3,28 @@
 ## <center>寻找最佳音缘_服务端</center>
 
 * [系统架构图](#系统架构图)
-- [演示效果图](#演示效果图)
-* 开发环境
+* [演示效果图](#演示效果图)
+* [开发环境](#开发环境)
+* [推荐算法](#推荐算法)
+* [爬虫技术](#爬虫技术)
+* [IP代理](#IP代理)
 
 ## 系统架构图
 ![](pics/系统架构图.png)
 
 ## 演示效果图
 ![](pics/demo.gif)
+
+## 开发环境
+* 操作系统：Windows 10 x64
+* 开发工具：Eclipse、PyCharm
+* 数据库：MySQL 5.7、Redis 4.0
+* 服务器：Tomcat 9.0
+
+## 推荐算法
+
+## 爬虫技术
+
+## IP代理
 
 <a href="https://github.com/Kevin-free/yinyuan_weapp" rel="nofollow">寻找最佳音缘_微信小程序端</a>
