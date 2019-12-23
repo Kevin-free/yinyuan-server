@@ -10,10 +10,10 @@
 * [IP代理](#IP代理)
 
 ## 系统架构图
-![](pics/系统架构图.png)
+![系统架构图](pics/系统架构图.png)
 
 ## 演示效果图
-![](pics/demo.gif)
+![演示效果图](pics/demo.gif)
 
 ## 开发环境
 * 操作系统：Windows 10 x64
