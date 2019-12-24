@@ -16,8 +16,7 @@
 ![演示效果图](pics/demo.gif)
 
 ## 开发环境
-* 操作系统：Windows 10 x64
-* 开发工具：Eclipse、PyCharm
+* 开发语言：Java、Python
 * 数据库：MySQL 5.7、Redis 4.0
 * 服务器：Tomcat 9.0
 
