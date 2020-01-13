@@ -78,7 +78,7 @@ public class UserDaoImp implements UserDao {
 	}
 
 	public ArrayList<User> getRankInfo() {
-		String sql = "SELECT wxNickName,wxAvatarUrl,zyyzs FROM user ORDER BY zyyzs DESC LIMIT 100;";
+		String sql = "SELECT wxNickName,wxAvatarUrl,zyyzs FROM user WHERE `status`=1 ORDER BY zyyzs DESC LIMIT 100;";
 		try {
 			pst = conn.prepareStatement(sql);
 			ResultSet rs = pst.executeQuery();

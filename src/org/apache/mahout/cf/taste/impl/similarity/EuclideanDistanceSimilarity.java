@@ -69,13 +69,10 @@ public final class EuclideanDistanceSimilarity extends AbstractSimilarity {
      * 加入惩罚因子的计算公式
      * @param count 某歌曲的出现次数
      * @param n 两用户共有正反馈的歌曲数
-     * @param sumXY
-     * @param sumX2
-     * @param sumY2
-     * @param sumXYdiff2
+     * @param sumXYdiff2 差平方的和
      * @return
      */
-    double computeResultcf(int count,int n, double sumXY, double sumX2, double sumY2, double sumXYdiff2) {
+    double computeResultcf(int count,int n, double sumXYdiff2) {
         return (1.0 / count) / (1.0 + Math.sqrt(sumXYdiff2) / Math.sqrt(n));
     }
 

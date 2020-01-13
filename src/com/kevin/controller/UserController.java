@@ -41,8 +41,13 @@ public class UserController {
 				/*String requestUrl = WX_URL.replace("APPID", "wx6aa68b1cd8c98061")
 						.replace("SECRET", "deb6c3e370e00ca21df53c4fe3d51f4c").replace("JSCODE", code)
 						.replace("authorization_code", "authorization_code");*/
-				String requestUrl = WX_URL.replace("APPID", "wxaaebee5ca83d5e50")
+				// 个人账户
+				/*String requestUrl = WX_URL.replace("APPID", "wxaaebee5ca83d5e50")
 						.replace("SECRET", "9ac01424d2545a89205d8fe969fab7fe").replace("JSCODE", code)
+						.replace("authorization_code", "authorization_code");*/
+				// 佳码账户
+				String requestUrl = WX_URL.replace("APPID", "wxb74afc75f2c20b65")
+						.replace("SECRET", "46b189c6bd06d159129df117d0a39092").replace("JSCODE", code)
 						.replace("authorization_code", "authorization_code");
 				JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "GET", null);
 				// System.out.println("---jsobj:" + jsonObject);
